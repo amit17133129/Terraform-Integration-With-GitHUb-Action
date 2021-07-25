@@ -71,14 +71,14 @@ So how we can integrate terraform with github actions ? Find answer below.
 Create a repository with any name here, i created two directories.
 
 1. `.github/workflows` → In this folder we will be having github action .yml file.
-2. `terraform-githubactions-example` → In this folder, we will write terraform files (.tf)
+2. `terraform_github_actions_example` → In this folder, we will write terraform files (.tf)
 
 
 <p align="center">
   <img width="1000" height="300" src="https://miro.medium.com/max/1094/1*aw3H9yuXR5wALAt97XZOyQ.png">
 </p>
 
-Now you have to create the terraform `.tf` files in the other folder. So here in the `terraform-git-example` i have placed `.tf` file. In one file only i have given provider, variables and resource section.
+Now you have to create the terraform `.tf` files in the other folder. So here in the `terraform_github_actions_example` i have placed `.tf` file. In one file only i have given provider, variables and resource section.
 
 
 <p align="center">
