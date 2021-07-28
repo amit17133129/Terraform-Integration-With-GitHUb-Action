@@ -20,4 +20,4 @@ jobs:
     
       - name: Terraform Apply
         id: apply
-        run: cd terraform_github_actions_example  && terraform init && terraform validate && terraform plan  && terraform apply -auto-approve  
+        run: cd terraform_github_actions_example  && terraform init && terraform validate && terraform plan   
