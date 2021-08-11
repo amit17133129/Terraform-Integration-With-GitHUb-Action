@@ -1,41 +1,43 @@
   
-# name: terraform-github-action
+name: terraform-github-action
 
-# on: [push, pull_request]
+on: [push, pull_request]
 
-# env:
-#   AWS_ACCESS_KEY_ID: ${{ secrets.aws_access_key }}
-#   AWS_SECRET_ACCESS_KEY: ${{ secrets.aws_secret_access_key }}
+env:
+  AWS_ACCESS_KEY_ID: ${{ secrets.aws_access_key }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.aws_secret_access_key }}
 
-# jobs:
-#   build:
-#     name: build
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Checkout
-#         uses: actions/checkout@v2
-
-#       - name: Set up Terraform
-#         uses: hashicorp/setup-terraform@v1
-    
-#       - name: Terraform Apply
-#         id: apply
-#         run: cd terraform_github_actions_example  && terraform init && terraform validate && terraform plan
-
-
-on: 
-  workflow_dispatch:
-    inputs:
-      logLevel:
-        description: 'Log level'     
-        required: true
-        default: 'warning'
-      tags:
-        description: 'Test scenario tags'  
 jobs:
-  printInputs:
+  build:
+    name: build
     runs-on: ubuntu-latest
     steps:
-    - run: |
-        echo "Log level: ${{ github.event.inputs.logLevel }}" 
-        echo "Tags: ${{ github.event.inputs.tags }}"
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v1
+    
+      - name: Terraform Apply
+        id: apply
+        run: cd terraform_github_actions_example  && terraform init && terraform validate && terraform plan
+
+
+# For creating workflow dispatch
+
+# on: 
+#   workflow_dispatch:
+#     inputs:
+#       logLevel:
+#         description: 'Log level'     
+#         required: true
+#         default: 'warning'
+#       tags:
+#         description: 'Test scenario tags'  
+# jobs:
+#   printInputs:
+#     runs-on: ubuntu-latest
+#     steps:
+#     - run: |
+#         echo "Log level: ${{ github.event.inputs.logLevel }}" 
+#         echo "Tags: ${{ github.event.inputs.tags }}"
